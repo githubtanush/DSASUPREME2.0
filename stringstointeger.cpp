@@ -21,7 +21,7 @@ int myAtoi(string s){
 
     //STEP 1 - 
     //IGNORE THE TRAILING/LEADING SPACES
-    while(s[i]==' '){
+    while(i<s.size() && s[i]==' '){
         i++;
     }
 
@@ -31,8 +31,11 @@ int myAtoi(string s){
     //IF SIGN IS THERE THEN WHAT SIGN IS THERE
     if(i<s.size() && (s[i]=='-' || s[i]=='+')){
         //sign is decided by relational operator
-        sign = s[i] == '+' ? 1 : -1;
+        sign =( s[i] == '+') ? 1 : -1;
         i++;
+        //after finding sign - break;
+        // break;   //WHEN WE USE WHILE INSTEAD OF IF THEN BREAK STATEMENT AT THAT TIME PLAY AN IMPORTANT ROLE
+
     }
 
     //STEP 3 - 
@@ -56,9 +59,9 @@ int myAtoi(string s){
         //THEN 3RD CONDITION - MERA 214748364 AAGA 7 TK TO MUJHE ALLOWED HAI OUT OF BOUND TO TAB HOGA NA JAB
         //7 SE BDA HOGA ESLIYE EK OR CONDITION S[I]>'7' DLEGI
         //THIS IS CALLED SPECIAL HANDLING
-        if((num > INT_MAX/10) || (num==INT_MAX/10) && (s[i]>'7') ){
+        if((num > INT_MAX/10) || ((num==INT_MAX/10) && (s[i]>'7') )){
             //ESMA BHI 1 CATCH HAI  AGR SIGN  -1 HAI TO HMA RETURN KRNA PDEGA -1 ELSE +1
-            return sign==-1?INT_MIN:INT_MAX;
+            return (sign==-1)?INT_MIN:INT_MAX;
         }
         num = num * 10 + (s[i] - '0');
         i++;
