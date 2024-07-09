@@ -36,6 +36,11 @@ int missingelementfromarraywithduplicates(vector<int>& v){
         else{
             i++;
         }
+        cout<<"For"<<i<<"iteration : "<<" ";
+        for(int i : v){
+            cout<<i<<" ";
+        }
+        cout<<endl;
     }
     for(int i = 0 ; i < n;i++){
         if(v[i] != i+1){
@@ -60,3 +65,4 @@ int main(){
 }
 //5
 //1 3 5 3 4
+//5 3 3 3 1
