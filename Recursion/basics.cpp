@@ -27,12 +27,27 @@ int pow(int n){
     //recursive relation
     return 2*pow(n-1);
 }
+
+int fib(int n){
+    //base case
+    if(n==0 || n==1) return n;
+    //recursive relation
+    return fib(n-1)+fib(n-2);
+}
+int sum(int n){
+    //base case
+    if(n==1) return 1;
+    //recursive relation
+    return n + sum(n-1);
+}
 int main(){
     int n;
     cin>>n;
 //    long long int ans =  factorial(n);
-int ans = pow(n);
+// int ans = pow(n);
 // printcounting(n);
+// int ans = fib(n);
+int ans = sum(n);
    cout<<ans<<endl;
    return 0;
 }
