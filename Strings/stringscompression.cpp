@@ -3,6 +3,9 @@
 #include<vector>
 using namespace std;
 int compress(vector<char>& s){
+    //  int index = 0;//string mein compress krke save krne ka liye
+        // int count = 1;//count ka track rkhna ka liye
+        // char prev = s[0]; // to match the string by using two pointers
     //ek mein index rkhunga jo track rkhega ki kitna length ki hogyi string
     //Think like two pointer approach
     int index = 0;
