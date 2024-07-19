@@ -49,16 +49,45 @@ void levelordertraversal(Node* root){
         }
     } 
 }
-// try krna level order traversal se left view achieve krne ke liye
+// // try krna level order traversal se left view achieve krne ke liye
+// void printleftview(Node* root,int level,vector<int>& leftview){
+//     if(root==NULL) return ;
+
+//     if(level == leftview.size()){
+//         //iska matlab mujhe leftview vali node mil gyi hai 
+//         leftview.push_back(root->data);
+//     }
+//     printleftview(root->left,level+1,leftview);
+//     printleftview(root->right,level+1,leftview);  
+// }
+ 
+// void printrightview(Node* root,int level,vector<int>& rightview){
+//     if(root==NULL) return ;
+//     if(level == rightview.size()){
+//         //iska matlab right vali node mil gyi 
+//         rightview.push_back(root->data);
+//     }
+//     printrightview(root->right,level+1,rightview);
+//     printrightview(root->left,level+1,rightview);
+// }
+
+//left view by using beautiful observation which is when level == arr.size() push in array 
 void printleftview(Node* root,int level,vector<int>& leftview){
     if(root==NULL) return ;
 
-    if(level == leftview.size()){
-        //iska matlab mujhe leftview vali node mil gyi hai 
+    if(level==leftview.size()){
         leftview.push_back(root->data);
     }
     printleftview(root->left,level+1,leftview);
-    printleftview(root->right,level+1,leftview);  
+    printleftview(root->left,level+1,leftview);
+}
+void printrightview(Node* root,int level,vector<int>& rightview){
+    if(root==NULL) return ;
+    if(level == rightview.size()){
+        rightview.push_back(root->data);
+    }
+    printrightview(root->right,level+1,rightview);
+    printrightview(root->left,level+1,rightview);
 }
 int main(){
     Node* root = createtree();
@@ -70,6 +99,11 @@ int main(){
     for(auto i : leftview){
         cout<<i<<" ";
     }
+    vector<int> rightview;
+    cout<<endl<<"Printing Right View : "<<endl;
+    printrightview(root,level,rightview);
+    for(auto i : rightview)
+        cout<<i<<" ";
     cout<<endl;
     return 0;
 }
