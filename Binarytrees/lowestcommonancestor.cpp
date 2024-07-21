@@ -44,13 +44,13 @@ void levelordertraversal(Node* root){
         }
     }
 }
-Node* lca(Node* root,Node* p,Node* q){
+Node* lca(Node* root,Node* p,Node* q,int& ans){
     if(root == NULL) return NULL;
     if(root->data == p->data) return p;
     if(root->data == q->data) return q;
 
-    Node* leftans = lca(root->left,p,q);
-    Node* rightans = lca(root->right,p,q);
+    Node* leftans = lca(root->left,p,q,ans);
+    Node* rightans = lca(root->right,p,q,ans);
 
     if(leftans == NULL && rightans == NULL) return NULL;
     else if(leftans != NULL && rightans == NULL) return leftans;
@@ -67,7 +67,8 @@ int main(){
     int data2;
     cin>>data2;
     Node* q = new Node(data2);
-    Node* ans = lca(root,p,q);
+    int answ = 0;
+    Node* ans = lca(root,p,q,answ);
     cout<<ans->data<<" ";
     return 0;
 }
