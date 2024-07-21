@@ -91,4 +91,5 @@ int height(Node* root,bool& isbalanced){
     else{
         cout<<"The tree is not balanced"<<endl;
     }
+    return 0;
     }
