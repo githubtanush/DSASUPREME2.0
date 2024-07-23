@@ -66,40 +66,40 @@ Node* bstfrominorder(int inorder[],int s,int e){
     root->right = bstfrominorder(inorder,mid+1,e);
     return root;
 }
-//convert this bst into sorted doubly linked list
-void convertbsttodll(Node* root,Node*& head){
-if(root == NULL) return ;
-//RNL
-//R
-convertbsttodll(root->right,head);
-//N
-root->right = head;
-if(head != NULL) head->left = root;
-head = root;
+Node* convertdlltobst(Node*& head,int n){
+    //base case
+    if(head == NULL || n <= 0) return NULL;
 
-//L
-convertbsttodll(root->left,head);
-}
-void printll(Node* head){
-    Node* temp = head;
-    while(temp != NULL){
-        cout<<temp->data<<" ";
-        temp = temp->right;
-    }
-    cout<<endl; 
+    //LNR
+    //L
+    Node* leftsubtree = convertdlltobst(head,n/2);
+    //N
+    Node* root = head;
+    root->left = leftsubtree;
+    //head update
+    head = head->right;
+
+    //R
+    Node* rightsubtree = convertdlltobst(head,n-n/2-1);
+    root->right = rightsubtree;
+    return root;
 }
 int main(){
-    // Node* root = NULL;
-    // createbst(root);
-    // levelordertraversal(root);
-    int inorder[] = {10,20,30,40,50,60,70};
-    int size = 7;
-    int start = 0;
-    int end = size - 1;
-    Node* root = bstfrominorder(inorder,start,end);
+    Node* first = new Node(10);
+    Node* second = new Node(20);
+    Node* third = new Node(30);
+
+    first->right = second;
+    second->right = third;
+    second->left = first;
+    third->left = second;
+
+    Node* head = first;
+    // 10<->20<->30
+
+    Node* root = convertdlltobst(head,3);
     levelordertraversal(root);
-    Node* head = NULL;
-    convertbsttodll(root,head);
-    printll(head);
+    
+   
     return 0;
 }
