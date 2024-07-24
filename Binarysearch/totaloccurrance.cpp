@@ -34,9 +34,17 @@ int findupperbound(vector<int>& nums,int target){
     return ans;
 }
 int findtotaloccurrance(vector<int>& nums,int target){
-    int lb = findlowerbound(nums,target);
-    int rb = findupperbound(nums,target);
-    return  rb - lb + 1;    
+    // int lb = findlowerbound(nums,target);
+    // int rb = findupperbound(nums,target);
+    // return  rb - lb + 1;    
+
+    auto it = lower_bound(nums.begin(),nums.end(),target);
+    auto it2 = upper_bound(nums.begin(),nums.end(),target);
+
+        auto lb = it - nums.begin();
+        auto ub = it2 - nums.begin();
+
+        return ub-lb; 
 }
 int main(){
     vector<int> nums;
