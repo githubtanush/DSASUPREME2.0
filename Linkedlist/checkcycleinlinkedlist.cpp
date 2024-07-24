@@ -109,6 +109,94 @@ bool checkcycleinlinkedlist(Node*& head){
     }
     return false;
 }
+Node* getstartingpointofloop(Node*& head){
+    //check for loop
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+        if(fast == slow){
+            //matlab cycle to exist krti hai but yeh thori jroori hai ki starting point hi return kiya esna
+            break;
+        }
+    }
+    //yaah phunch gay matlab kahi na kahi slow fast meet kr gay 
+    //agr fast null hua means no cycle return 
+    if(fast == NULL) return NULL;
+    //slow hmara head par hai 
+    //cycle exist so slow attached to head
+    //Step1 = slow ko head se assign krdo 
+    slow = head;
+    //loop chlao jab tak fast slow brabar nhi hota
+    while(fast != slow){
+        //esma simple chlayenge loop 
+        //slow ko bdao 
+        slow = slow->next;
+        //fast ko bdao
+        fast = fast->next;
+        //check kro ki yeh same hua ya nhi
+    }
+    //return starting point
+    //bahar aaya matlab fast slow ek jagah par hai to return krdo slow ko
+    return slow;
+}
+//Remove a loop 
+//jo starting point se pehle vala link hai usko htakar null krdo ho gya loop remove
+void removeloop(Node*& head){
+    //check for loop
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+        if(fast == slow){
+            //matlab cycle to exist krti hai but yeh thori jroori hai ki starting point hi return kiya esna
+            break;
+        }
+    }
+    //yaah phunch gay matlab kahi na kahi slow fast meet kr gay 
+    //agr fast null hua means no cycle return 
+    // if(fast == NULL) return NULL;
+    //slow hmara head par hai 
+    //cycle exist so slow attached to head
+    //Step1 = slow ko head se assign krdo 
+    slow = head;
+    //loop chlao jab tak fast slow brabar nhi hota
+    while(fast != slow){
+        //esma simple chlayenge loop 
+        //slow ko bdao 
+        slow = slow->next;
+        //fast ko bdao
+        fast = fast->next;
+        //check kro ki yeh same hua ya nhi
+    }
+   //hme starting point mil gya
+   Node* startpoint = slow;
+   Node* temp = fast;
+   while(temp->next != startpoint){
+    temp = temp->next;
+   }
+   temp->next = NULL;
+}
+void printsll(Node*& head){
+//Step 1 - pehle mein ek jaali temporary pointer bna dena taaki mere head ch koi dikkat na aava ta oh apni jagah te rah 
+// kyuki maanu bacho vi ohdi value di lodd pa skdi hai 
+    Node* temp = head;
+//loop jad tak null nhi aa janda
+    while(temp != NULL){
+        //print kdi ja value ohdi linked list di 
+        cout<<temp->data<<" ";
+        //temp nu aaga vdada 
+        temp = temp->next;
+    }   
+}
 int main(){
     Node* head = NULL;
     Node* tail = NULL;
@@ -127,6 +215,11 @@ int main(){
     printll(head);
    bool ans = checkcycleinlinkedlist(head);
    if(ans) cout<<"Cycle exist in linked list"<<endl;
+   else cout<<"Cycle does not exist"<<endl;
+   removeloop(head);
+   printsll(head);
+   bool ans2 = checkcycleinlinkedlist(head);
+   if(ans2) cout<<"Cycle exist in linked list"<<endl;
    else cout<<"Cycle does not exist"<<endl;
     return 0;
 }
