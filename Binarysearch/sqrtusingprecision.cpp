@@ -1,4 +1,5 @@
 #include<iostream>
+#include<iomanip>
 using namespace std;
 int mysqrt(int n){
     int s = 0;
@@ -23,11 +24,12 @@ double myprecision(int n){
     double step = 0.1;
     int precision = 10;
     for(int i = 0; i < precision;i++){
-        while(sqrt*sqrt<=n){
-            sqrt += step;
+        double j = sqrt;
+        while(j*j<=n){
+            sqrt = j;
+            j += step;
         }
-        sqrt -= step;
-        step = step/10;
+        step = step / 10;
     }
     return sqrt;
 }
@@ -36,6 +38,6 @@ int main(){
     cout<<"Enter the number for which u find the square root : ";
     cin>>n;
     double ans = myprecision(n);
-    cout<<"The sqrt for this following number is : "<<ans<<endl;
+    cout<<"The sqrt for this following number is : "<<fixed<<setprecision(10)<<ans<<endl;
     return 0;
 }
