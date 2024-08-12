@@ -7,11 +7,16 @@ using namespace std;
 //different pairs chahiye to use set for take distinct pairs
 
 int bs(vector<int>& nums,int s,int x){
+    //x is that element in the nums which we find to make nums[j]-nums[i] == k
     int e = nums.size()-1;
-    while(s<=e){
-        int mid = s + ( e - s)/2;
-        if(nums[mid] == x )return mid;
-        else if(nums[mid] < x) s = mid + 1;
+    while (s <= e ){
+        //finding mid
+        int mid = s + ( e - s )/2;
+        //if nums[mid] equals that x element
+        if(nums[mid]==x) return mid;
+        //if that x element greater than the nums[mid]
+        else if( x > nums[mid] ) s = mid + 1;
+        //else mid - 1;
         else e = mid - 1;
     }
     return -1;
@@ -31,44 +36,60 @@ int findpairs(vector<int>& nums,int k ){
     //     return ans.size();
 
     // //method 2 - two pointer approach
-    // //firstly sort the arrays
-    // int n = nums.size();
-    // sort(nums.begin(),nums.end());
-    // set<pair<int,int> >ans;
-    // int i = 0;
-    // int j = 1;
-    // while(j < n){
-    //     int diff = nums[j]-nums[i];
-    //     if(diff == k){
+    // ios::sync_with_stdio(0);
+    //     cin.tie(0);
+    //     //simply firstly we sort the array 
+    //     sort(nums.begin(),nums.end());
+    //     //we declare count variable to track the unique pairs
+    //     int count = 0;
+    //     //ek set declare krunga jisme unique pairs ko rkhunga
+    //     set<pair<int,int> > ans;
+    //     //then we initalize the two pointer with i = 0 j = 1
+    //     //so that we find unique pairs in the array 
+    //     int i = 0, j = 1;
+    //     //mein j ko less than array ka size tk check krunga
+    //     while( j < nums.size() ){
+    //         //mein difference find krunga or check krunga ki vo k ke brabar hai ya nhi
+    //         int diff = nums[j] - nums[i];
+    //         //agr difference k ke brabar hua toh
+    //         //ans mein store krunga 
+    //         //or i , j ko aaga bda dunga
+    //         if(diff == k){
     //         ans.insert({nums[i],nums[j]});
-    //         i++;
-    //         j++;
-    //     }
-    //     else if(diff>k){
-    //         i++;
-    //     }
-    //     else{
-    //         j++;
-    //     }
+    //         cout<<nums[i]<<" "<<nums[j]<<endl;
+    //             i++;
+    //             j++;
+    //         }
+    //         //agr difference bda hua toh mein simply sirf i ko aaga bdaunga
+    //         else if(diff > k ){
+    //             i++;
+    //         }
+    //         //nhi to j ko aaga bda dunga
+    //         else{
+    //             j++;
+    //         }
+    //     // agr i j ko brabar hua turant usko aaga bda do kyuki i j ka brabar ho gya toh unique pairs ni aayenge
     //     if(i==j) j++;
-    // }
-    // return ans.size();
+    //     }
+    //     return ans.size();
 
-    //Method 3 - Binary search
-    //can we apply binary search on this question
-    //pehle sort krdenge kyuki binary search to sorted array mein hi applicable hai 
-    sort(nums.begin(),nums.end());
-    //set lunga taaki different pairs ko store krwa sku
-    set<pair<int,int> >ans;
-    for(int i = 0; i < nums.size();i++){
-        // a[i]
-        // search->a[i] + k [right subarray];
-        if(bs(nums,i+1,nums[i]+k) != -1){
-            ans.insert({nums[i],nums[i]+k});
-        }   
+    //Method 3 - binary search
+        //pehle to mein sort hi krunga 
+        sort(nums.begin(),nums.end());
+        //then mein jaadu krunga matlab set name ka ans array lunga or usme unique pairs ko insert krwaunga
+        set<pair<int,int> > ans;
+        //then mein for loop chlaunga array ke end tak traverse krne ke liye
+        for(int i = 0; i < nums.size();i++){
+            //phir mein binary search mein check krunga
+            //main thing we use in binary search is that nums[i] + k 
+            //how we find these 
+            //we simply take nums[j]-nums[i] = k
+            //we simply solve this to nums[j] = nums[i] + k ;
+            //Then there we will able to apply binary search
+            if(bs(nums,i+1,nums[i] + k) != -1) ans.insert({nums[i],nums[i] + k});
+        }
+        return ans.size();
     }
-    return ans.size();
-}
 //T.C - O(Nlogn);
 int main(){
     vector<int> nums;
