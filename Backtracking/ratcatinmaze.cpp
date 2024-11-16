@@ -11,6 +11,7 @@ bool issafe(int srcx,int srcy,int newx ,int newy,int maze[][4],int row,int col,v
 if(newx>=0 && newx<row && newy>=0 && newy<col && maze[newx][newy]==1 && visited[newx][newy]==false ) return true;
 else return false;
 }
+
 void printallpath(int maze[][4],int row,int col,int srcx,int srcy,string& output,vector<vector<bool> >& visited){
     //destination coordinates are [row-1][col-1]
     if(srcx == row-1 && srcy==col-1){
@@ -64,6 +65,7 @@ void printallpath(int maze[][4],int row,int col,int srcx,int srcy,string& output
     }
 
 }
+
 int main(){
     int maze[4][4]={
         {1,0,0,0},
