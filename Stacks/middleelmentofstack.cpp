@@ -51,9 +51,7 @@ int main(){
     st.push(40);
     st.push(50);
     st.push(60);
-
     int mid = getmiddleelement(st);
     cout<<"Middle Element is : "<<mid<<endl;
     return 0;
 }
- 

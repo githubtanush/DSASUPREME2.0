@@ -1,6 +1,9 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
+//using the approach search space create 
+//we can focus on search space 
+//possible answer for 64 is the search space 
 int mysqrt(int n){
     int s = 0;
     int e = n - 1;
