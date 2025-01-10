@@ -1,3 +1,6 @@
+// agr 7meters ki wood chahiye to 7m lekar jayga 8m ki nhi lekr jayga
+//sawblade at maximum height so that still allow him to cut atleast m meter of wood
+//safe practice to use long long int spoj jeise bdi website par
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -11,9 +14,10 @@ bool ispossiblesolution(vector<long long int>trees,long long int m,long long int
     }
     return woodcollected>=m;
 }
+//eska bhi datatype long long int rkhte hai safe game khelte hai
 long long int maxsawbladeheight(vector<long long int>& trees,long long int m){
     long long int s= 0,e,ans = -1;
-    e = *max_element(trees.begin(),trees.end());
+    e = *max_element(trees.begin(),trees.end());//use to find the biggest element in the array 
     while(s<=e){
         long long int mid = s + ( e - s)/2;
         if(ispossiblesolution(trees,m,mid)){
