@@ -13,7 +13,7 @@ bool ispossible(vector<int> cookranks,int np,int mid){
                 timetaken += j * r;
                 ++j;
             }
-            else{
+            else{ 
                 break;
             }
         }
@@ -41,12 +41,14 @@ int minTimetocompleteorder(vector<int> cooksranks,int np){
     return ans;
 }
 int main(){
-    int T;
+    int T;//number of test cases
     cin>>T;
-    while(T--){
+    while(T--){ 
         int np,nc;
+        //number of prantha and number of cooks input krwana
         cin>>np>>nc;
     vector<int> cooksranks;
+    //number of cooks  ki rank input krni hai  cai 
     while(nc--){
         int r;
         cin>>r;
