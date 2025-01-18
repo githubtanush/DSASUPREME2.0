@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+//binary search on nearly sorted array means answer is on mid-1/mid or mid+1
 int binarysearchonnearlysortedarray(vector<int>& arr,int target){
     int s = 0;
     int e = arr.size() - 1;

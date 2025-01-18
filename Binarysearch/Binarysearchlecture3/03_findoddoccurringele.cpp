@@ -1,6 +1,10 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+//find odd occuring element - 
+//1.) all element even number of times occur except one -odd
+//2.) all repeating numbers -> pairs repeat & same pairs are not repeated
+//3.) ek baar mein koi bhi number 2 baar se jaada nhi aa skta
 int findoddocc(vector<int>& arr){
     int s = 0;
     int n = arr.size();

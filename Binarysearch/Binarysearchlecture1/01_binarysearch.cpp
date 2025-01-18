@@ -6,6 +6,17 @@
 //we apply binary search on that array which follows this condition
 // 1st.) Array is sorted it's not matter it is in increasing or decreasing
 // 2nd.) apply on monotonic functions it is in ascending or descending order
+
+// #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Binary search has 4 types of question 
+// 1.) classical 
+// 2.) searchspace 
+// 3.) predicate function 
+// 4.) index cherakhani
+
+// #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 #include<iostream>
 #include<vector>
 using namespace std;
