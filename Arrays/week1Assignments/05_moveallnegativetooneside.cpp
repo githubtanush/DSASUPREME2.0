@@ -1,6 +1,9 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+//Method 1 -> sorting
+//Method 2 -> 0 & 1 vala logic sort 0 1 2
+// Method 3 -> temporary array bnaunga O(n) space khaunga but ho jayga
 void moveallnegativenumbers(vector<int>& v){
     //Method 1 - sorting
     // sort(v.begin(),v.end());

@@ -1,6 +1,12 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+//Method 1 - sorting then check index
+//Method 2 - sum method
+//Method 3 - xor method
+
+
 // int missingnumber(vector<int>& nums){
 //     //BRUTE FORCE  - 1.) SORT 
 //     // 2.) CHECK THE INDEX WITH NUMS[INDEX]
