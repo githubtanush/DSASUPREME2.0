@@ -4,7 +4,7 @@ using namespace std;
 int findpeakindex(vector<int>& arr){
     int s = 0;
     int e = arr.size() - 1;
-    while(s < e){
+    while(s < e){//esliye taaki hmara code infinite loop mein na phasa
         int mid = s + ( e - s )/2;
         if(arr[mid] < arr[mid+1]) s = mid + 1;
         else e = mid;

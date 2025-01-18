@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+// lowerbound or we can say that find the first occurrance of the number
 int findlowerbound(vector<int>& nums,int target){
     // int s = 0;
     // int e = nums.size()-1;
