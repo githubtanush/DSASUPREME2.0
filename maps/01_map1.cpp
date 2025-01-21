@@ -9,6 +9,10 @@
 //unordered_map (O(1)) ~ nearly constant time
 //ordered map using balance BST
 //unordered_map - Array / hashtable / Bucketarray
+//maps are not contiguous it is like in tree manner
+//it is in the key pair form 
+//map store only unique key values
+
 #include<iostream>
 #include<unordered_map>
 using namespace std;
@@ -35,6 +39,7 @@ int main(){
     cout<<mapping.at("Tanush")<<endl;
     cout<<mapping["Tanush"]<<endl;
 
+    // in mapping we apply the find function
     if(mapping.find("Tanush") != mapping.end()){
         cout<<"Found"<<endl;
     }
@@ -44,3 +49,6 @@ int main(){
     return 0;
      
 }
+
+//find and erase concept in map
+// .find and .erase function y
