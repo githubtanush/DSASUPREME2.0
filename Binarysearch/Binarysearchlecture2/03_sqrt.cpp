@@ -10,8 +10,8 @@ using namespace std;
 // sqrtl (long double)
 int mysqrt(int n){
     int s = 0;
-    int e = n - 1;
-    int mid = ( s + e )/2;
+    int e = n;
+    int mid = ( s + (e - s )/2);
     int ans = -1;
     while(s <= e){
         if(mid*mid  <=  n){

@@ -18,7 +18,8 @@ int findlowerbound(vector<int>& nums,int target){
     // }
     // return ans;
     auto it = lower_bound(nums.begin(),nums.end(),target);
-    return it-nums.begin();
+    return it-nums.begin();// if u want to find the index of the lowerbound of the element
+    // and if u want the element then you print cout<<*it<<endl;
 }
 int main(){
     vector<int> nums;
