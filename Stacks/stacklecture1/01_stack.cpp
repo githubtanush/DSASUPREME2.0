@@ -1,3 +1,7 @@
+//stack is a data structure which can store the elements in lifo order last in first out 
+//which we insert last we firstly take this
+//like example the order of plates in marriage(daashi)
+//stack is a machine which always reverse the order of the array 
 #include<iostream>
 using namespace std;
 class Stack{
@@ -37,7 +41,10 @@ class Stack{
         }
         else return arr[top];
     }
-
+    bool empty(){
+        if(top == -1) return true;
+        else return false;
+    }
     int getsize(){
         return top+1;
     }

@@ -1,39 +1,59 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int coinchange(vector<int>& coins,int amount){
-    //base case 
-    if(amount == 0) return 0;
-    if(amount < 0) return INT_MAX;
+int solve(vector<int>& coins,int amount){
 
-    //processing
-    int mini = INT_MAX;
-    // int ans = INT_MAX;
-    for(int i = 0; i < coins.size();i++){
-        int coin = coins[i];
-        //current coin ko sirf tbhi use krenge jab uski value <= amount hogi
-        if(coin <= amount){
-            int recans = coinchange(coins,amount - coin);
-            if(recans != INT_MAX){
-                int ans = 1 + recans;
-                mini = min(mini,ans);
+//    base case
+        if(amount==0){
+            return 0;
+        }
+        //recursive relation
+        int mini = INT_MAX;
+
+        for(int i = 0 ; i < coins.size();i++){
+            //find answer using ith coin
+            int recursionkaans = 0;
+            //call recursion only for valid amount i.e >=0  wala amounts
+            if(amount-coins[i] >= 0){
+                recursionkaans = solve(coins,amount-coins[i]);
+                //recursion int max ke equal tab hota jab coin ki value amount se jada ho or answer negative mein jaana lg jaay
+                //so avoid this condition because if reckaans is INT_MAX then it is overflow when we add 1 to INT_MAX
+                if(recursionkaans != INT_MAX){
+                    int ans = 1 + recursionkaans;
+                    mini = min(mini,ans);
+                }
             }
         }
-    }
-    return mini;
+        return mini;
+
+}
+int coinchange(vector<int>& coins,int amount){
+    int ans = solve(coins,amount);
+    if(ans==INT_MAX) return -1;
+    else return ans;
 }
 int main(){
+    vector<int> coins;
     int n;
-    cout<<"Enter the number of coins that u have : "<<endl;
     cin>>n;
-    vector<int> coins(n);
-    for(int i = 0; i < n;i++) cin>>coins[i];
+    coins.resize(n);
+    for(int i = 0; i < n;i++){
+      cin>>coins[i];
+    }
     int amount;
-    cout<<"The targeted amount is : ";
     cin>>amount;
-    coinchange(coins,amount);
     int ans = coinchange(coins,amount);
-    if(ans == INT_MAX) return -1;
-    else return ans;
+    cout<<ans<<endl;
     return 0;
 }
+//input-
+//3 
+//6 8 5
+// 11
+//output - 2
+
+//input - 
+// 1
+// 2
+// 3
+//output  =  -1;
