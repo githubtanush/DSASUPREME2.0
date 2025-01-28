@@ -37,11 +37,8 @@ vector<int> prevsmallerelement(vector<int> arr){
             st.push(i);
         }
         return ans;
-
-
-
-
 }
+
 //find the largest rectangle area covered in histogram
 int largestrectanglearea(vector<int>& heights){
     vector<int> next = nextsmallerelement(heights);
