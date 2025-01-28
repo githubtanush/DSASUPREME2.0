@@ -11,6 +11,8 @@ bool checkredundantbrackets(string& s){
         }
         else if(ch==')'){
             int operatorcount = 0;
+            //stack ka top jab bhi access kro pehle yeh to check kr lo 
+            // ki yeh empty hai ya nhi 
             while(!st.empty() && st.top() != '('){
                 char temp = st.top();
                 if(temp=='+' || temp=='-' || temp=='*' || temp=='/'){
@@ -24,7 +26,8 @@ bool checkredundantbrackets(string& s){
             if(operatorcount == 0) return true;
         }
     }
-    //agr mein yaah tak phuncha hu eska matlab ki har ek bracket ke pair ke bich mein ek operator pkka mila hoga
+    //agr mein yaah tak phuncha hu eska matlab ki har 
+    //ek bracket ke pair ke bich mein ek operator pkka mila hoga
     //matlab return false;
     return false;
 }
