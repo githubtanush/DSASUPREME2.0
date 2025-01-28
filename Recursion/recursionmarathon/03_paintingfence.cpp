@@ -1,5 +1,9 @@
 #include<iostream>
 using namespace std;
+//mst algorithm hai 
+//painting fence algorithm 
+//jisme hmara pass n post hai or k colors hai 
+
 int getpaintways(int n,int k){
     // base case 
     if(n==1)  return k;

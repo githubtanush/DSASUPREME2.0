@@ -1,3 +1,6 @@
+//1st Approach - kisi stack ke andar daaldo reverse ho jayga but vo nhi krna
+//2nd Approach - Use the magical line - Stack is recursion 
+//I can swap the stack using recursion
 #include<iostream>
 #include<stack>
 using namespace std;

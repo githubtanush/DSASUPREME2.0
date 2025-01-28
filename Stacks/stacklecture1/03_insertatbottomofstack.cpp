@@ -10,6 +10,7 @@ if(st.empty()){
 }
 // 1 case mein solve krunga baaki recursion dekh lunga
 int temp = st.top();
+// phir mein pop kr dunga
 st.pop();
 
 //baakirecursion chacha dekh lenge

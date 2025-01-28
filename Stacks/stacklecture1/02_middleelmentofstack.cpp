@@ -1,5 +1,6 @@
 //Very important pattern 
 //Most classical problems solve by this
+//Es single pattern ke upar kayi questions ho jata hai
 #include<iostream>
 #include<stack>
 using namespace std;
@@ -16,7 +17,8 @@ void solve(stack<int>& st,int& pos,int& ans){
     pos--;
     //temp ke andar stack ka top rkhte jao 
     int temp = st.top();
-    //usko save esliye kiya kyuki baad mein vo vaapis daalna ka kaam aayga
+    //usko save esliye kiya kyuki baad mein vo vaapis 
+    //daalna ka kaam aayga
     st.pop();
     //recursion chlado
     solve(st,pos,ans);
