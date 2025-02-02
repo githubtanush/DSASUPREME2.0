@@ -1,3 +1,6 @@
+//when we see any words from the first then how much words is common
+// in these is lie in the prefix for example - flower | flow | flight
+// the longest common prefix is : fl
 #include<iostream>
 #include<string>
 #include<vector>
@@ -45,3 +48,4 @@ int main(){
     return 0;
 }
 // flower flow flight
+// fl

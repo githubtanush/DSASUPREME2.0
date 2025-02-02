@@ -2,6 +2,7 @@
 #include<vector>
 #include<string>
 using namespace std;
+//highlight of the question is that u will use custom comparator easily
 static bool mycomp(string a,string b){
     string t1 = a + b;
     string t2 = b + a;
@@ -12,9 +13,14 @@ string largestnumber(vector<int> nums){
     vector<string> snums;
     //saara integers ko string mein convert kr liya
     for(auto s:nums){
+        //tostring is the inbuilt stl which is used to convert 
+        //integer to string
         snums.push_back(to_string(s));
     }
-    //sort kr diya or sort krte time agr 0 sbse pehle aa jay to ek 0 return krdo kyuki 0 se chota or kya hi hoga
+    //sort kr diya or sort krte time agr 0 sbse pehle aa 
+    //jay to ek 0 return krdo kyuki 0 se chota or kya hi hoga
+    //string sorting is lexicographically sorting - means 
+    //written like abcdefghijklmnaopqrstuvwxyz
     sort(snums.begin(),snums.end(),mycomp);
     if(snums[0]=="0") return "0";
     // answer string bna lo return krna ke liya answer ko 

@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 using namespace std;
+//string compression also known as run length encoding best algorithm to compression the string
 int compress(vector<char>& s){
     //  int index = 0;//string mein compress krke save krne ka liye
         // int count = 1;//count ka track rkhna ka liye

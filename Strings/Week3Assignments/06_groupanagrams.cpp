@@ -5,6 +5,13 @@
 #include<array>
 using namespace std;
 
+
+//Anagram - word jab bhi mere dimag mein aata to mere ko ek hash yaad aata
+// 256 size ka so ek solution to voh hoga hi hoga  aise map bnata ta 
+// anagram mein to map yaad rkhna 
+// or ek hash256 vala solution to hoga hi hoga and that is my method 2
+
+
 //Method 1 - with sorting
 // vector<vector<string>>groupAnagrams(vector<string>& strs){
 
@@ -30,6 +37,7 @@ using namespace std;
  //TC = O(nklogk)
  //SC =  O(Nk)
 // }
+
     //Method2 - without sort the array
     //TC - O(Nk)
     //SC- O(NK)
@@ -44,7 +52,12 @@ using namespace std;
     //Method2 without sorting
     
     vector<vector<string> > groupAnagrams(vector<string>& strs){
-        map<std::array<int,256> ,vector<string> >mp;
+        //hash bnana ka liye string ki jagah 
+        //ek hash le lenge array 256 size ka
+          //unordered_map ke andar khatarnaak datatype ni daal skte but 
+        // agr simple map hoga to usme hm khatarnaak se khatarnaak datatype daal skte hai
+        // esliye map ka use krte h instead of unordered_map
+        map<std::array<int,256>,vector<string> >mp;
 
         for(auto str: strs){
             mp[computehash(str)].push_back(str);

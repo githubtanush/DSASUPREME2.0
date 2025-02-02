@@ -1,6 +1,8 @@
 #include<iostream>
 #include<stack>
 using namespace std;
+// jab bhi mere ko thora sa bhi reversal vala case aaya balanced expression vla case aay to valid parenthesis 
+// ko ek baar sochna hai thora dry run kroga to ho jayga
 bool isvalid(string s){
     stack<char> st;
     for(int i = 0; i < s.length();i++){

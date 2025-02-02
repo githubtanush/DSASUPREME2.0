@@ -5,23 +5,27 @@
 #include<limits.h>
 using namespace std;
 int converttomins(string& mins){
-    //hm minute mein convert kr rah hai to hm pehle string ko integer mein laayenge stoi function se
+    //hm minute mein convert kr rah hai to hm pehle string 
+    // ko integer mein laayenge stoi function se
     //and then usme substring pass krenge
     int hr = stoi(mins.substr(0,2));
     int min = stoi(mins.substr(3,2));
-    //abhi to hr and min sirf integer mein aay unko minutes mein convert krne ke liye hmm es formula ka use krenge
+    //abhi to hr and min sirf integer mein aay unko minutes 
+    //mein convert krne ke liye hmm es formula ka use krenge
     return ((60 * hr)+ min);
 
 }
 int findmindifference(vector<string>& timepoints){
-    //now ab hmee difference nikalna to pehle hmmm minute mein le aaynga hour ki jagah 
+    //now ab hmee difference nikalna to pehle hmmm 
+    // minute mein le aaynga hour ki jagah 
     vector<int> mins;
     for(auto mini: timepoints){
         mins.push_back(converttomins(mini));
     }
     //minutes mein convert hone ke baad hmm esa sort kr lenge
     sort(mins.begin(),mins.end());
-    //ek answer initialize krlenge intmax se kyuki hmme minimum difference nikalna hai 
+    //ek answer initialize krlenge intmax se kyuki 
+    // hmme minimum difference nikalna hai 
     int ans = INT_MAX;
 
     // then ab hmm compare krenge ki minimum difference kitna hai 
@@ -50,5 +54,5 @@ int main(){
 
     return 0;
 }
-// 23:59 00:00
-// 00:00 23:59 00:00
+// 23:59 00:00           = 1 
+// 00:00 23:59 00:00     = 0
