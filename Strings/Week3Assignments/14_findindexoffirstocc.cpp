@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 int str(string haystack,string needle){
-    int n = haystack.length();
-    int m = needle.length();
+    int n = haystack.size();
+    int m = needle.size();
     // koi fayda hai nhi last 3rd element se aaga check krne ka
     for(int i = 0; i <= n-m;i++){
         for(int j = 0; j < m ;j++){
@@ -27,3 +27,5 @@ int main(){
 }
 // sadbutsad
 // sad
+
+//Time complexity  - O(MN)

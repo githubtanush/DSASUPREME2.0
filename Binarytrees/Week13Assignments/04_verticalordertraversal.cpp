@@ -1,4 +1,4 @@
-#include<iostream>
+ #include<iostream>
 #include<vector>
 #include<queue>
 #include<map>
@@ -29,11 +29,18 @@ Node* createtree(){
     return root;
 }
 vector<vector<int> > verticalordertraversal(Node* root){
-    vector<vector<int> > ans;
+    vector<vector<int> > ans;// To return at the end we need to create
     queue<pair<Node*,pair<int,int> > > q; //Node,{row,col};
-    q.push({root,{0,0}});
-    map<int,map<int,multiset<int> > > mp;
-    //col -> {row : [x,y,z]};
+    q.push({root,{0,0}});// sbse pehle initially root or row / col ko 0,0 
+    // pass krenge 
+    // map col se ek or map map krenge jo ki row wise sorted hoga,col ke
+    //mujhe top to bottom jana par mere ko sorted order mein bhi jana
+    // so we use set 
+    //but set unique elements store krte esliye multiset use krenge
+    //multiset duplicate elements ko bhi sorted order mein rkh leta
+    map<int,map<int,multiset<int> > > mp;// har column ka corresponding 
+    // top to bottom jana matlab row wise jana
+    //col -> {row : [x,y,z,.....]};
     while(!q.empty()){
         auto front = q.front();
         q.pop();

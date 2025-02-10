@@ -11,6 +11,7 @@ using namespace std;
 //     return true;
 // }
 // string removeduplicates(string s,int k ){
+//      Time complexity - O(Nk) Space Complexity - O(1);
 //     //Method 1 - new array creation and checking when push or pop
 //     string ans = " ";
 //     for(int i = 0; i < s.size();i++){
@@ -33,6 +34,7 @@ using namespace std;
 //     return ans;
 // }//In this we again and again back to k elements which take more time
 
+
 string removeduplicates(string& s,int k){//In this we loop iterate only 1 time so work is done in O(n) time complexity
     //Method2 - Use of two pointer approach very effectively
      //firstly we initialize two vectors
@@ -50,6 +52,7 @@ string removeduplicates(string& s,int k){//In this we loop iterate only 1 time s
      }
      return s.substr(0,i);
 }
+//Timecomplexity - O(N) space complexity - O(N)
 int main(){
     string s;
     getline(cin,s);
