@@ -83,11 +83,14 @@ void insertathead(Node*& head,Node*& tail,int data){
 
 //2nd approach to find the middle of node is very important by using slow and fast pointer/tortoise algo
 Node* middleNode(Node*& head){
-    //es algo mein slow vala pointer ek step se aaga bdta hai toh fast vala pointer 2 step se aaga bdta hai 
-    //or slow vala pointer usi case mein aaga ja skta hai jab fast vala pointer aaga bd skta hai nhi to slow vala 
+    //es algo mein slow vala pointer ek step se aaga bdta hai toh 
+    //fast vala pointer 2 step se aaga bdta hai 
+    //or slow vala pointer usi case mein aaga ja skta hai jab 
+    //fast vala pointer aaga bd skta hai nhi to slow vala 
     //aaga nhi jaata
 
-    //asa esliye agr maanlo slow covers x km in 1 hr and fast cover 2x km in 1 hr
+    //asa esliye agr maanlo slow covers x km in 1 hr and 
+    //fast cover 2x km in 1 hr
     //to slow to mid par hi hua naa
 
     //make two pointers slow and fast
@@ -102,7 +105,8 @@ Node* middleNode(Node*& head){
     while(fast != NULL){
         //jab tak fast null nhi hai tab tak fast ko fast ka next krte jao
         fast = fast->next;
-        //hmne 2 step chlna hai toh dusra step chlna se pehle bhi yeh to check krenge 
+        //hmne 2 step chlna hai toh dusra step chlna se pehle bhi 
+        //yeh to check krenge 
         //naa ki aaga jayga ya nhi 
             if(fast != NULL){
                 fast = fast->next;
