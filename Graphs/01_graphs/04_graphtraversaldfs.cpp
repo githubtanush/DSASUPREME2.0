@@ -18,7 +18,7 @@ class Graph{
         else{
             // direction ==  0 means
             // undirected graph 
-            // u-------v
+            // u ------- v
             // u <-> v
             adjlist[u].push_back({v,wt});
             adjlist[v].push_back({u,wt});
