@@ -124,7 +124,15 @@ int maxdepthlot(Node*& root){
     }
     return count;
 }
+int diameter(Node*& root){
+    if(root == NULL) return 0;
 
+    int option1 = diameter(root->left);
+    int option2 = diameter(root->right);
+    int option3 = maxdepth(root->left) + maxdepth(root->right);
+
+    return max(option1,max(option2,option3));
+}
 int main(){
     cout<<"Enter the value for node : ";
     Node* root = createtree();
