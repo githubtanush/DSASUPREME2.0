@@ -25,23 +25,21 @@ Node* createtree(){
     return root;
 }
 Node* solve(Node* root,int& k, int node,int& ans){
-    if(!root) return 0;
-    if(root->data == node) return root;
+    if(!root) return 0;// agr root null hai to return 0 krdo
+    if(root->data == node) return root; // agr root ka data node ke brabar hai to root return krdo
+    if(ans != -1) return root; // agr ans -1 hai to root ko return krdo
 
-    if(ans != -1 ) return root; //answer mil jaayga to aaga mat jao 
-
-    auto l = solve(root->left,k,node,ans);
-    auto r = solve(root->right,k,node,ans);
+    auto l = solve(root->left,k,node,ans); // left side check kr lo
+    auto r = solve(root->right,k,node,ans);// right side check kr lo
 
     //node yaah hogi
-    if(!l && !r) return 0;
+    if(!l && !r) return 0; // left or right null nahi hai to return 0 krdo
+    k--; // k ko kam krte jao 
+    if(k == 0) ans = root->data; // agr k==0 hai to ans mein root ke data ko store krlo
 
-    k--;
-    if(k==0) ans = root->data;
-
-    if(l && !r) return l;
-    else if(!l && r) return r;
-    else return root;
+    if(l && !r) return l;// agr left null nhi or right null hai to l return krdo
+    if(!l && r) return r;// agr left null hai or right null nhi hai to r ko return krdo
+    else return root; // root ko return krdo
 }
 int kthancestor(Node* root,int& k,int& node){
     int ans = -1;

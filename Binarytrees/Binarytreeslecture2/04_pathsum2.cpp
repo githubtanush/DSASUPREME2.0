@@ -77,9 +77,9 @@ void solve(Node* root,int targetSum,vector<vector<int> >& ans,vector<int> temp,i
     }
 int main(){
     Node* root = createtree();
-    cout<<"printing level order traversal : ";
+    cout<<"printing level order traversal : "<<endl;
     levelordertraversal(root);
-    int targetsum = 22;
+    int targetsum = 65;
     vector<vector<int> > ans = pathSum(root,targetsum);
     for(int i = 0; i < ans.size();i++){
         for(int j = 0; j < ans[i].size();j++){
