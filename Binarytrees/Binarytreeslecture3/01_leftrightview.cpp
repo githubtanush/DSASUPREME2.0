@@ -79,7 +79,7 @@ void printleftview(Node* root,int level,vector<int>& leftview){
         leftview.push_back(root->data);
     }
     printleftview(root->left,level+1,leftview);
-    printleftview(root->left,level+1,leftview);
+    printleftview(root->right,level+1,leftview);
 }
 void printrightview(Node* root,int level,vector<int>& rightview){
     if(root==NULL) return ;

@@ -11,33 +11,37 @@
 #include<vector>
 #include<deque>
 using namespace std;
-vector<int> maxslidingwindow(vector<int>& v, int k ){
-    deque<int> dq;// mujhe deque ki need pdegi
-    vector<int> ans; // mere ko answer mein store krna to yeh bhi rkhna pdega
+// vector<int> maxslidingwindow(vector<int>& v, int k ){
+//     deque<int> dq;// mujhe deque ki need pdegi
+//     vector<int> ans; // mere ko answer mein store krna to yeh bhi rkhna pdega
 
-    // process first k elements 
-    for(int i = 0; i < k;i++){
-        // jo bhi number chote h current element se , unhe remove krdo
-        while(!dq.empty() && (v[dq.back()] < v[i])) dq.pop_back();
+//     // process first k elements 
+//     for(int i = 0; i < k;i++){
+//         // jo bhi number chote h current element se , unhe remove krdo
+//         while(!dq.empty() && (v[dq.back()] < v[i])) dq.pop_back();
 
-        dq.push_back(i);
-    }
-    //storing answer for first window
-    ans.push_back(v[dq.front()]);
+//         dq.push_back(i);
+//     }
+//     //storing answer for first window
+//     ans.push_back(v[dq.front()]);
 
-    //process remaining windows 
-    for(int i = k ; i < v.size();i++){
-        //removal / addition / ans store
-        if(!dq.empty() && i-k >= dq.front()) dq.pop_front();
-        //addition 
-        while(!dq.empty() && v[dq.back()] < v[i]) dq.pop_back();
+//     //process remaining windows 
+//     for(int i = k ; i < v.size();i++){
+//         //removal / addition / ans store
+//         if(!dq.empty() && i-dq.front() >= k) dq.pop_front();
+//         //addition 
+//         while(!dq.empty() && v[dq.back()] < v[i]) dq.pop_back();
 
-        dq.push_back(i);
-        //ans store
-        ans.push_back(v[dq.front()]);
-    }
-    return ans;
+//         dq.push_back(i);
+//         //ans store
+//         ans.push_back(v[dq.front()]);
+//     }
+//     return ans;
 
+// }
+
+vector<int> maxslidingwindow(vector<int>& v,int& k){
+    
 }
 int main(){
     int n ;

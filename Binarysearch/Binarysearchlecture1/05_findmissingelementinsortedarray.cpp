@@ -27,7 +27,7 @@ int findmissingelement(vector<int>& arr){
         }
         mid = s + ( e - s )/2;
     }
-    if(ans+1 == 0) return n+1;
+    if(ans+1 == 0) return arr.size()+1;
     return ans+1;
 }
 int main(){
