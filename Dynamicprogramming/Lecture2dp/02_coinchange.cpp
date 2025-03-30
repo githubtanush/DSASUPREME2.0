@@ -75,6 +75,8 @@ int solveusingtabulation(vector<int>& coins,int amount){
     }
     return dp[amount];
 }
+//No space Optimization possible here because value depends on many numbers on previous not 1 or 2 
+// So space optimization is not possible
 int coinchange(vector<int>& coins,int amount){
     // int ans = solveusingrec(coins,amount);
     //Top - down appraoch (Recursion + Memoization)
