@@ -61,3 +61,4 @@ int main(){
     cout<<"The beauty sum of the string is : "<<beautySum(s)<<endl;
     return 0;
 }
+//aabcb
