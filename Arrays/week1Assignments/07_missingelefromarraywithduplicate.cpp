@@ -66,16 +66,16 @@ int missingelementfromarraywithduplicates(vector<int>& v){
     return ans;
 
     //Method 4 - Maths method
-       // int s = ( n * (n + 1 ) ) / 2 ; //Finding sum of the n natural numbers
-       // int sq = ( n * ( n + 1 ) * ( 2 * n + 1 ) ) / 6; // find the sum of squares of n natural numbers
-       // int missing = 0  , repeating = 0; // missing and repeating set to be 0
-       // for(int i = 0; i < n;i++){ //traverse the loop 
-       //     s -= v[i];  
-       //     sq -= v[i] * v[i];
-       // }
-       // missing = (s + sq/s)/2;
-       // repeating = missing - s;
-       // return {repeating,missing};
+    // int s = ( n * (n + 1 ) ) / 2 ; //Finding sum of the n natural numbers
+    // int sq = ( n * ( n + 1 ) * ( 2 * n + 1 ) ) / 6; // find the sum of squares of n natural numbers
+    // int missing = 0  , repeating = 0; // missing and repeating set to be 0
+    // for(int i = 0; i < n;i++){ //traverse the loop 
+    //     s -= v[i];  
+    //     sq -= v[i] * v[i];
+    // }
+    // missing = (s + sq/s)/2;
+    // repeating = missing - s;
+    // return {repeating,missing};
 
 }
 int main(){
