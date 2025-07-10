@@ -174,8 +174,12 @@ int main(){
 
 
 
-    return 0;
-}
+//     return 0;
+// }
 // 1 2 3 4 5 6 7 8 9 10
 // 2 4 6 8 10 12 14 16 18 20
 
+// #---------------------------------------------------------------------------------------------------------------------------------------------
+// if we declare int arr[6] it will stored garbage value inside  int main 
+// but if i declare the array globally then it will not stored garbage value 
+// it stored 0 at every index in array 

@@ -95,12 +95,14 @@ void insertatanypos(Node*& head,Node*& tail,int data,int position){
         //ta curr nu head de brabar 
         Node* prev = NULL;
         Node* curr = head;
-        //step3 = mein  loop chlaunga jad tak position != 1 na hojava taaki curr mera mein jithe insert krna us to aaga hove ta prev usi de picha hova
+        //step3 = mein  loop chlaunga jad tak position != 1 na hojava taaki curr mera mein 
+        // jithe insert krna us to aaga hove ta prev usi de picha hova
         // then apply loop
         while(position != 1){
             //pehle mein position ktaunga par position bacho vi ja katai ta vi dikkat koi nhi hai 
             position--;
-            //but pehle maanu prev nu curr de brabaar krna then  curr nu curr de next nhi ta prev ki curr vali node nu hi point krn lag jega jo ki glt hai 
+            //but pehle maanu prev nu curr de brabaar krna then  curr nu curr de next nhi ta prev ki 
+            //curr vali node nu hi point krn lag jega jo ki glt hai 
             prev = curr;
             //hun mein current nu current da next krunga
             curr = curr->next;

@@ -77,8 +77,6 @@ class Graph{
                 }
                 //cycle present 
                 else if(visited[nbr] == true && nbr != parent[frontnode]) return true;
-
-
             }
         }
         //cycle not present 
